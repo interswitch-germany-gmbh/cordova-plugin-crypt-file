@@ -23,7 +23,7 @@ module.exports = function(context) {
     context.opts.platforms.filter(function(platform) {
         var pluginInfo = context.opts.plugin.pluginInfo;
         return pluginInfo.getPlatformsArray().indexOf(platform) > -1;
-        
+
     }).forEach(function(platform) {
         var platformPath = path.join(projectRoot, 'platforms', platform);
         var platformApi = platforms.getPlatformApi(platform, platformPath);
@@ -55,7 +55,7 @@ module.exports = function(context) {
             replaceCryptKey_ios(pluginDir, key, iv);
 
         } else if (platform == 'android') {
-            var pluginDir = path.join(platformPath, 'src');
+            var pluginDir = path.join(platformPath, 'app/src/main/java');
             replaceCryptKey_android(pluginDir, key, iv);
 
             var cfg = new ConfigParser(platformInfo.projectConfig.path);
